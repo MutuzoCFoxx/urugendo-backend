@@ -12,11 +12,10 @@ router = APIRouter(prefix="/rides", tags=["Rides"])
 
 
 def _safe_driver(driver) -> dict:
+    # Ride endpoints are public, so never include the driver's phone or email
     return {
         "id": driver.id,
         "full_name": driver.full_name,
-        "phone": driver.phone,
-        "email": driver.email,
         "is_verified": driver.is_verified,
         "avatar_url": driver.avatar_url,
         "bio": driver.bio,
